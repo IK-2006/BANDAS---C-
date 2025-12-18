@@ -1,152 +1,165 @@
-﻿// Screen Sound
-string mensagemBoasVindas = "Boas vindas ao Screen Sound!";
+﻿//**int notaMedia = 7;
+//**if (notaMedia >= 7)
+//**{
+//**//**Console.WriteLine("Aprovado");
+//**}
+//**else
+//**{
+//**Console.WriteLine("Reprovado");
+//**}
 
-Dictionary<string, List<int>> bandas = new Dictionary<string, List<int>>();
-bandas.Add("Pierce the Veil" , new List<int> { 7, 6, 8});
-bandas.Add("Beatles", new List<int> { 9, 8, 6});
+//**string linguagensProgramacao = "C#, Java, Python, JavaScript";
+//**Console.WriteLine(linguagensProgramacao[0]);
+
+//**console.writeline("escreva um numero:");
+//**int numero = int.parse(console.readline());
+
+//**int[] lista = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+//;
+//**console.writeline(lista[numero]); **//
+
+//console.writeline("digite um número de 1 a 100");
+
+//random random = new random();
+//int meta = random.next(1, 101);
+
+//int numero;
+//do
+//{
+//    numero = int.parse(console.readline());
+//    if (numero < meta)
+//    {
+//        console.writeline("o número é maior");
+//    }
+//    if (numero > meta)
+//    {
+//        console.writeline("o número é menor");
+//    }
+
+//}
+//while (numero != meta);
+//console.writeline("parabens, você acertou o numero segredo");
+
+//using System.Reflection.Metadata;
+//using System;
+//using System.Collections.Generic;
+
+//void conta()
+//{
+//    float num1 = 8.5f;
+//    float num2 = 2.5f;
+//    float adicao = num1 + num2;
+//    float subtracao = num1 - num2;
+//    float multiplicacao = num1 * num2;
+//    float divisao = num1 / num2;
+//    Console.WriteLine("Adição: " + adicao);
+//    Console.WriteLine("Subtração: " + subtracao);
+//    Console.WriteLine("Multiplicação: " + multiplicacao);
+//    Console.WriteLine("Divisão: " + divisao);
+//}
+//;
+
+//conta();
+
+//List<string> bandas = new List<string>() { "Pierce the veil", "Muse", "deftones" };
+//foreach (string banda in bandas)
+//{
+//    Console.WriteLine(banda);
+//}
+
+//List<int> numeros = new List<int>() { 1, 2, 3, 4, 5 };
+//int soma = numeros.Sum();
+//Console.WriteLine("Soma dos números: " + soma);
 
 
-void ExibirLogo()
+//var NotaAlunos = new Dictionary<string, Dictionary<string, List<int>>>
+//{
+//    { "João", new Dictionary<string, List<int>> {
+//        {"Matemática", new List<int> {8, 9, 7}},
+//        {"Português", new List<int> {6, 7, 8}}
+//    }
+//},
+//    {"Maria", new Dictionary<string, List<int>> {
+//        {"Matemática", new List<int> {9, 8, 10}},
+//        {"Português", new List<int> {7, 8, 9}}
+//    } }
+//};
+
+//List<int> MediaNotasJoaoMatematica = NotaAlunos["João"]["Matemática"];
+//double mediaJoaoMatematica = MediaNotasJoaoMatematica.Average();
+//Console.WriteLine($"Média das notas de João em Matemática: {mediaJoaoMatematica}");
+
+
+//var Produtos = new Dictionary<string, int>
+//{
+//    { "Calça", 80 },
+//    { "Tênis", 120 },
+//    { "Camiseta", 40 }
+//};
+
+//Console.WriteLine("Digite a opção desejada: ");
+//Console.WriteLine("1 - Listar Produtos");
+//Console.WriteLine("2 - Quantidade em Estoque");
+//int opcaoEscolhida = int.Parse(Console.ReadLine()!);
+
+//switch (opcaoEscolhida)
+//{
+//    case 1:
+//        Console.Clear();
+//        foreach (var produto in Produtos)
+//        {
+//            Console.WriteLine($"{produto.Key} ");
+//        }
+//        break;
+//    case 2: foreach (var produto in Produtos)
+//        {
+//            Console.WriteLine($"{produto.Key}: {produto.Value} unidades");
+//        }break;
+//}
+
+
+//var Quiz = new Dictionary<string, string>
+//{
+//    { "Qual a capital da França?", "Paris" },
+//    { "Qual o maior planeta do sistema solar?", "Júpiter" },
+//    { "Quem escreveu 'Dom Quixote'?", "Miguel de Cervantes" }
+//};
+
+//Console.WriteLine("Bem-vindo ao Quiz! Responda às perguntas abaixo:");
+//foreach (var pergunta in Quiz)
+//{
+//    Console.WriteLine(pergunta.Key);
+//    string respostaUsuario = Console.ReadLine()!;
+//    if (respostaUsuario.Equals(pergunta.Value, StringComparison.OrdinalIgnoreCase))
+//    {
+//        Console.WriteLine("Resposta correta!");
+//    }
+//    else
+//    {
+//        Console.WriteLine($"Resposta incorreta! A resposta correta é: {pergunta.Value}");
+//    }
+//}
+
+
+var login = new Dictionary<string, string>
 {
-    Console.WriteLine(@"
-█▀ █▀▀ █▀█ █▀▀ █▀▀ █▄░█   █▀ █▀█ █░█ █▄░█ █▀▄
-▄█ █▄▄ █▀▄ ██▄ ██▄ █░▀█   ▄█ █▄█ █▄█ █░▀█ █▄▀
-"); 
-    Console.WriteLine(mensagemBoasVindas);
-}
+    {"inacio", "123" },
+    {"admin", "admin" }
+};
 
-void ExibirOpcoesMenu()
+Console.WriteLine("Digite seu usuário e sua senha:");
+Console.WriteLine("Usuario: ");
+string usuario = Console.ReadLine()!;
+Console.WriteLine("Senha: ");
+string senha = Console.ReadLine()!;
+
+if (login.ContainsKey(usuario) && login[usuario] == senha)
 {
-    ExibirLogo();
-    Console.WriteLine("\nEscolha uma das opções abaixo:");
-    Console.WriteLine("1 - Registrar uma banda");
-    Console.WriteLine("2 - Mostrar todas as bandas");
-    Console.WriteLine("3 - Avaliar uma banda");
-    Console.WriteLine("4 - Mostrar média de avaliações de uma banda");
-    Console.WriteLine("0 - Sair");
-
-    Console.Write("\nDigite a opção desejada: ");
-    string opcaoEscolhida = Console.ReadLine()!;
-    int opcaoConvertida = int.Parse(opcaoEscolhida);
-    
-    switch (opcaoConvertida)
-    {
-        case 1: RegistrarBandas();
-            break;
-        case 2: ; ListarBandas();
-            break;
-        case 3: AvaliarBanda();
-            break;
-        case 4: MediaBanda();
-            break;
-        case 0: Console.WriteLine("Você escolheu a opção " + opcaoConvertida + ". Até mais!");
-            break;
-        default: Console.WriteLine("Opção inválida! Tente novamente.");
-            break;
-    }
-
-
+    Console.WriteLine("Login bem-sucedido!");
 }
-
-void ExibirTituloOpcao(string titulo)
+else
 {
-    int quantidadeLetras = titulo.Length;
-    string asteriscos = string.Empty.PadLeft(quantidadeLetras, '*');
-    Console.WriteLine(asteriscos);
-    Console.WriteLine(titulo);
-    Console.WriteLine(asteriscos);
+    Console.WriteLine("Usuário ou senha incorretos.");
 }
-
-
-
-
-void RegistrarBandas()
-{
-    Console.Clear();
-    ExibirTituloOpcao("Registro de Bandas");
-    Console.Write("Digite o nome da banda que deseja registrar: ");
-    string nomeBanda = Console.ReadLine()!;
-    bandas.Add(nomeBanda, new List<int>());
-    Console.WriteLine($"A banda {nomeBanda} foi registrada com sucesso");
-    Thread.Sleep(2000);
-    Console.Clear();
-    ExibirOpcoesMenu();
-}
-
-void BandasRegistradas()
-{
-     foreach (string banda in bandas.Keys)
-    {
-        Console.WriteLine($"- {banda}");
-    };
-}
-
-void ListarBandas()
-{
-    Console.Clear();
-    ExibirTituloOpcao("Bandas Registradas");
-    Console.WriteLine("As bandas registradas são:\n");
-    BandasRegistradas();
-    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu.");
-    Console.ReadKey();
-    Console.Clear();
-    ExibirOpcoesMenu();
-}
-
-void AvaliarBanda()
-{
-    Console.Clear();
-    ExibirTituloOpcao("Avaliar Bandas");
-    BandasRegistradas();
-    Console.Write("\nDigite o nome da banda que deseja avaliar: ");
-    string nomeBanda = Console.ReadLine()!;
-    if (bandas.ContainsKey(nomeBanda))
-    {
-        Console.Write($"Qual a sua avaliação para a banda {nomeBanda} (de 0 a 10)? ");
-        int nota = int.Parse(Console.ReadLine()!);
-        bandas[nomeBanda].Add(nota);
-        Console.WriteLine($"\nA banda {nomeBanda} foi avaliada com a nota {nota} com sucesso!");
-        Thread.Sleep(2000);
-        Console.Clear();
-        ExibirOpcoesMenu();
-    }
-    else
-    {
-        Console.WriteLine($"\nA banda {nomeBanda} não foi encontrada.");
-        Thread.Sleep(2000);
-        Console.Clear();
-        ExibirOpcoesMenu();
-    }
-}
-
-void MediaBanda()
-{
-    Console.Clear();
-    ExibirTituloOpcao("Média de Avaliações");
-    BandasRegistradas();
-    Console.WriteLine("\nDigite o nome da banda que deseja ver a média de avaliações: ");
-    string NomeBanda = Console.ReadLine()!;
-    if (bandas.ContainsKey(NomeBanda))
-    {
-        List<int> notas = bandas[NomeBanda];
-        double media = notas.Average();
-        Console.WriteLine($"\nA média de avaliações da banda {NomeBanda} é {media}");
-        Thread.Sleep(4000);
-        Console.Clear();
-        ExibirOpcoesMenu();
-    }
-    else
-    { 
-        Console.WriteLine($"\nA banda {NomeBanda} não foi encontrada.");
-        Thread.Sleep(2000);
-        Console.Clear();
-        ExibirOpcoesMenu();
-    }
-
-}
-;
-ExibirLogo();
-
-ExibirOpcoesMenu();
 
 
